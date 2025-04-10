@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane focusTraversable="true" prefHeight="400.0" prefWidth="663.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bernard.myappjavafx.Controllers.UserController">
+
+    <VBox alignment="CENTER" cacheShape="false" centerShape="false" prefHeight="450" prefWidth="739.0" spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+
+        <!-- Titre -->
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Gestion des Utilisateurs" />
+
+        <!-- Formulaire d'ajout/modification -->
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #555;" text="Login:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="loginField" style="-fx-background-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #555;" text="Mot de passe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <PasswordField fx:id="passwordField" style="-fx-background-radius: 5; -fx-padding: 5;" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="passwordVisibleField" style="-fx-background-radius: 5; -fx-padding: 5;" visible="false" HBox.hgrow="ALWAYS" />
+                <Button fx:id="togglePasswordButton" onAction="#togglePasswordVisibility" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;" text="👁" />
+            </HBox>
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #555;" text="Admin:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <CheckBox fx:id="adminCheckBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <!-- Boutons d'action -->
+        <HBox spacing="10">
+            <Button onAction="#addUser" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" text="Ajouter" />
+            <Button onAction="#updateUser" style="-fx-background-color: #f1c40f; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" text="Modifier" />
+            <Button onAction="#deleteUser" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" text="Supprimer" />
+        </HBox>
+
+        <!-- Table des utilisateurs -->
+        <TableView fx:id="userTable" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #ddd;">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                <TableColumn fx:id="colLogin" prefWidth="200" text="Login" />
+                <TableColumn fx:id="colAdmin" prefWidth="80" text="Admin" />
+            </columns>
+        </TableView>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+
+    </VBox>
+</AnchorPane>
